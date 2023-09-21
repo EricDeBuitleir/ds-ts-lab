@@ -34,17 +34,17 @@ function highestExtension(cs: Colleague[]){
   }
 //   console.log(highestExtension(colleagues.current));    
 
-  function addColleague(colleagues: Colleague[], name: string, department: string, email: string){
+  function addColleague(colleagues: Colleague[], name: string, department: string, email: string){ // creating a colleague constructor
     const result: string[] = []
     var colleagueNew = {
         name: name,
         department: department,
         contact: {
           email: email,
-          extension: highestExtension(colleagues).contact.extension + 1
+          extension: highestExtension(colleagues).contact.extension + 1 // getting the highestExtension in of the collegue in the array and adding 1
         },
       };
-    colleagues.push(colleagueNew)
+    colleagues.push(colleagueNew) // pushing the new collegue to the array
     }
     
   
@@ -72,27 +72,15 @@ function highestExtension(cs: Colleague[]){
 
     function addInterest(friends: Friend, interest: string){
     // function addInterest(friends: Friend[], interest: []){
-        if (friends.interests != null) {
-            friends.interests.push(interest)
-        } else{
-            friends.interests = [interest]
-        }
+        if (friends.interests == null) { // if an interest exists
+            friends.interests = []; // create an array to store the interests
+        } 
+        friends.interests?.push(interest) // push the current interest to the array
+        return friends.interests // return the array with the interests stored
       }
       console.log("===============================================================")
-      console.log(addInterest(friends[0], 'Politics'))
+      console.log(addInterest(friends[1], 'Politics')) //calling first object in the array [0] gives just 'Politics', calling [1] gives desired output
       console.log("===============================================================")
 
 
 
-    //   function addColleague(colleagues: Colleague[], name: string, department: string, email: string){
-    //     const result: string[] = []
-    //     var colleagueNew = {
-    //         name: name,
-    //         department: department,
-    //         contact: {
-    //           email: email,
-    //           extension: highestExtension(colleagues).contact.extension + 1
-    //         },
-    //       };
-    //     colleagues.push(colleagueNew)
-    //     }
