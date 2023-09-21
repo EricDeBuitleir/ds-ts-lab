@@ -68,3 +68,31 @@ function highestExtension(cs: Colleague[]){
       console.log(sortColleagues(colleagues.current, (a, b) => (a.contact.extension - b.contact.extension),3));
       console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length),1));
       console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length))); // NEW
+
+
+    function addInterest(friends: Friend, interest: string){
+    // function addInterest(friends: Friend[], interest: []){
+        if (friends.interests != null) {
+            friends.interests.push(interest)
+        } else{
+            friends.interests = [interest]
+        }
+      }
+      console.log("===============================================================")
+      console.log(addInterest(friends[0], 'Politics'))
+      console.log("===============================================================")
+
+
+
+    //   function addColleague(colleagues: Colleague[], name: string, department: string, email: string){
+    //     const result: string[] = []
+    //     var colleagueNew = {
+    //         name: name,
+    //         department: department,
+    //         contact: {
+    //           email: email,
+    //           extension: highestExtension(colleagues).contact.extension + 1
+    //         },
+    //       };
+    //     colleagues.push(colleagueNew)
+    //     }
