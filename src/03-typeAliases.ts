@@ -1,11 +1,12 @@
 import {
     ColleagueV2,
-    Friend,
+    // Friend,
     Buddy,
     BuddyList,
     Administrator,
   } from "./myTypes";
   import { friends } from "./01-basics";
+import { Friend } from './myTypes';
 
   const colleague1: ColleagueV2 = {
     name: "Ralph Graham",
@@ -77,17 +78,15 @@ import {
   // Test for findBuddyContact.
   console.log("Contact buddy at: ", findBuddyContact(myFootballBuddies, "Ralph Graham"));
 
-//   function getBuddyListFriends(list: BuddyList): Friend[] {
-  function getBuddyListFriends(list: BuddyList, friend : Friend[]){
-    
+
+  function getBuddyListFriends(list: BuddyList): Friend[]{
+    return list.members.filter(pal => "phone" in pal) as Friend[]
     // trying to return the list of members where the member is a buddy
     
-    
   }
-  console.log("===================================")
-  console.log(getBuddyListFriends)
-  console.log("===================================")
-
+  console.log(getBuddyListFriends(myBandBuddies))
+  console.log(getBuddyListFriends(myFootballBuddies))
+ 
 
 
   
