@@ -1,5 +1,5 @@
-import { friends, colleagues } from "./01-basics";
-import { Friend, Colleague, SecureFriendContact, FriendPartial, EventPass } from "./myTypes";
+import { friends, colleagues } from './01-basics';
+import { Friend, Colleague, SecureFriendContact, FriendPartial, EventPass, Intersec} from "./myTypes";
 
 function updateFriend(friend: Friend, updates: FriendPartial ) : Friend {
   return { ...friend, ...updates}
@@ -33,13 +33,21 @@ function secureFindFriends( friends: Friend[], criteria: (f: Friend) => boolean)
   }
   console.log(generateEventPass(colleagues.current[0]));
 
-  function intersection(friends: Friend[], colleagues: Colleague[]): ?? {
-    let result ??
+  function intersection(friends: Friend[], colleagues: Colleague[]): Intersec[] {
+    let result: Intersec[] = []
     friends.reduce((res, friend) => {
       const colleague = colleagues.find((col) => col.name === friend.name);
       if (colleague) {
         // Colleague is also a Friend
-        result.push(colleague)
+        let inter: Intersec = {
+          name: colleague.name,
+          age: friend.age,
+          contact: {
+            email: colleague.contact.email,
+            extenstion: colleague.contact.extension
+          }
+        }
+        result.push(inter)
       }
       return res;
     }, result);

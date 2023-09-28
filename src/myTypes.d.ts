@@ -52,3 +52,12 @@ export type EventPass = Omit<Colleague, "contact"> & {
 }
 // Make person's properties immutable.
 export type SecureFriendContact = Readonly<Pick<Friend,"name" | "phone" > >
+
+export type Intersec = {
+  name: string;
+  age: number;
+  contact: {
+    email: string,
+    extenstion: number
+  }
+}
